@@ -168,5 +168,5 @@ I will work out some other tutorials. Here are some ideas:
 * AI for NPCs
 * Generate a maze
 * build a schematic file
-* Adventure-mode RPG
+* Adventure-mode RPG (with custom advancements)
 * Other ideas?
