@@ -3,4 +3,4 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 cd "${DIR}"
-java -jar spigot.jar
+java -Xms512m -Xmx2048m -jar paper*.jar nogui
