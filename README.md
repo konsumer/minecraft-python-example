@@ -13,8 +13,8 @@ First, we need to setup a server:
 * Make a directory called `server/`
 * Download [spigot](https://getbukkit.org/download/spigot) (choose latest version) and save it as `server/spigot.jar`
 * Copy files in `server/` from this repo to your `server/` dir
-* Download the latest [minecraft python.jar](https://github.com/Macuyiko/minecraft-python/releases) and put it in `server/plugins`
 * Open a cmd-shell (windows) or terminal in `server/`. Run `./start` to start the server once, and edit eula.txt to accept it.
+* Download the latest [minecraft python.jar](https://github.com/Macuyiko/minecraft-python/releases) and put it in `server/plugins`
 * Run `./start` again, and then `op` yourself in the minecraft-terminal, so you can run everything.
 
 You will also need these to be able to use the REPL:
