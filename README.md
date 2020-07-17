@@ -65,7 +65,7 @@ def yello_event(e):
 add_event_listener(PlayerJoinEvent, yello_event)
 ```
 
-We add `@asynchronous()` before the function, to make sure it runs asynchronously (non-blocking, multiple events at once.) Most event-handlers should look like this.
+We decorate the handler with `@asynchronous()`, to make sure it runs asynchronously (non-blocking, multiple events at once.) Most event-handlers should look like this.
 
 Reload minecraft. After this, when a new player joins, it will spam everyone about python. 
 
