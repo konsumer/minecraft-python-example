@@ -9,7 +9,7 @@ This will walk you through setting up a minecraft server that can be extended wi
 First, we need to setup a server:
 
 * Install [java](https://www.java.com/ES/download/) on your system
-* Install a text-editor. I like [VSCode](https://code.visualstudio.com/). I also liek to install `Python` and `Python Indent` extensions.
+* Install a text-editor. I like [VSCode](https://code.visualstudio.com/). I also like to install `Python` and `Python Indent` extensions.
 * Make a directory called `server/`
 * Download [paper](https://papermc.io/downloads) (choose latest version) and save it in `server/`
 * Copy files in `server/` from this repo to your `server/` dir
@@ -51,7 +51,7 @@ add_event_listener(PlayerJoinEvent, yello_event)
 
 We decorate the handler with `@asynchronous()`, to make sure it runs asynchronously (non-blocking, multiple events at once.) Most event-handlers should look like this.
 
-Run `/pyrestart`. After this, when a new player joins, it will spam everyone about python. 
+Run `/reload confirm`. After this, when a new player joins, it will spam everyone about python. 
 
 
 ### exploding chickens
@@ -78,9 +78,9 @@ def cmd_chickenboom(caller, params):
 add_command('chickenboom', cmd_chickenboom)
 ```
 
-I use [color-codes](https://www.digminecraft.com/lists/color_list_pc.php) to make my warning stand-out, and use a count-down (using python's `sleep`) to give players some warning. Make sure to add the `u` to your message, so python knows it has special characters, and also `# -*- coding: utf-8 -*-` to setup the correct extended language. I also included the name of the player that deployed the chicken, so everyone knows.
+I use [color-codes](https://www.digminecraft.com/lists/color_list_pc.php) to make my warning stand-out, and use a count-down (using python's `sleep`) to give players some warning. Make sure to add the `u` to your message, so python knows it has special characters, and also `# -*- coding: utf-8 -*-` to setup the correct extended language for the file. I also included the name of the player that deployed the chicken, so everyone knows.
 
-Run `/pyrestart`, and you can run `/chickenboom` to spawn an exploding chicken.
+Run `/reload confirm`, and you can run `/chickenboom` to spawn an exploding chicken.
 
 #### Make it your own
 
