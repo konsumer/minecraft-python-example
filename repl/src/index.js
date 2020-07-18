@@ -6,12 +6,12 @@ import colors from 'colors'
 import 'xterm/css/xterm.css'
 import './index.css'
 
-const motd = `Welcome to The Minecraft Python REPL.\r
+const motd = colors.yellow(`Welcome to The Minecraft Python REPL.\r
 
 Connected to ws://localhost:44445/\r
 Type dir() or print(thing) to explore.\r
 
-`
+`)
 
 let currentInput = []
 const history = []
@@ -30,7 +30,7 @@ socket.onclose = e => {
   if (e.wasCLean) {
     term.write(`\r\n[close] Connection closed cleanly, code=${e.code} reason=${e.reason}`)
   } else {
-    term.write(colors.red('\r\n[close] Connection died'))
+    term.write(colors.red('\r\n[close] Connection died. Is minecraft + minecraft-python running locally?'))
   }
 }
 

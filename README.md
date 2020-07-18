@@ -21,7 +21,7 @@ If you are using [VSCode](https://code.visualstudio.com/), you can open the buil
 
 ### REPL
 
-There is a [python REPL](https://mcpyrepl.surge.sh) available for the server runnign on localhost, so you can try stuff out, and explore the available APIs. Even through it's a remote website, nothing is sent to the remote server, and it communicates directly with your local python plugin.
+There is a [python REPL](https://mcpyrepl.surge.sh) available for the server running on localhost, so you can try stuff out, and explore the available APIs. Even through it's a remote website, nothing is sent to the remote server, and it communicates directly with your local python plugin.
 
 ### file-locations
 
