@@ -17,22 +17,11 @@ First, we need to setup a server:
 * Download the latest [minecraft python.jar](https://github.com/Macuyiko/minecraft-python/releases) and put it in `server/plugins`
 * Run `./start` again, and then `op` yourself in the minecraft-terminal, so you can run everything.
 
-You will also need these to be able to use the REPL:
-
-* Install [python 3.x](https://www.python.org/downloads/). On mac & linux you should already have this.
-* Install [pip](https://pip.pypa.io/en/stable/installing/)
-* Run `pip install websocket-client`
-
-
-### tools
-
-I wrote these as shell-scripts (for mac & linux) and bat files (for windows) so the commands should work in both places.
-
-* `./start` - starts up the server
-* `./repl` - lets you connect to python plugin and test things out, once the server is running
-
-
 If you are using [VSCode](https://code.visualstudio.com/), you can open the built-in terminal (with `Ctrl-Backtick`), and run these directly.
+
+### REPL
+
+There is a [python REPL](https://mcpyrepl.surge.sh) available for the server runnign on localhost, so you can try stuff out, and explore the available APIs. Even through it's a remote website, nothing is sent to the remote server, and it communicates directly with your local python plugin.
 
 ### file-locations
 
@@ -115,7 +104,7 @@ add_command('parrotboom', cmd_parrotboom)
 
 I added a `sleep` for 1 second, just so the newly-created parrot has a second to contemplate their existance, before being turned into a bomb.
 
-You can use the REPL to discover other `EntityType`s:
+You can use the [python REPL](https://mcpyrepl.surge.sh) to discover other `EntityType`s:
 
 ```python
 from mcapi import *

@@ -1,0 +1,69 @@
+<head>
+    <title>Minecraft Python REPL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" integrity="sha512-iLYuqv+v/P4u9erpk+KM83Ioe/l7SEmr7wB6g+Kg1qmEit8EShDKnKtLHlv2QXUp7GGJhmqDI+1PhJYLTsfb8w==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js" integrity="sha512-2PRgAav8Os8vLcOAh1gSaDoNLe1fAyq8/G3QSdyjFFD+OqNjLeHE/8q4+S4MEZgPsuo+itHopj+hJvqS8XUQ8A==" crossorigin="anonymous"></script>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background: black;
+        }
+    </style>
+
+</head>
+<body>
+<div id="terminal"></div>
+<script>
+
+const motd = `Welcome to The Minecraft Python REPL.\r
+
+Connected to ws://localhost:44445/\r
+Type dir() or print(thing) to explore.\r
+
+`
+
+let currentInput = []
+const history = []
+const t = document.getElementById('terminal')
+const term = new Terminal({ screenKeys: false })
+term.open(t)
+const h = parseInt(window.getComputedStyle(document.body).getPropertyValue('height'))
+const w = parseInt(window.getComputedStyle(document.body).getPropertyValue('width'))
+term.resize(
+    Math.floor(w  / term._core._renderCoordinator.dimensions.actualCellWidth),
+    Math.floor(h  / term._core._renderCoordinator.dimensions.actualCellHeight)
+)
+
+const socket = new WebSocket("ws://localhost:44445/")
+socket.onopen = e => term.write(motd)
+socket.onerror = error => term.write(`\r\n\e[31mError: ${error.message}\e[0m\r`)
+socket.onmessage = e => term.write(`\r\n${e.data}`)
+socket.onclose  = e => {
+    if (e.wasCLean) {
+        term.write(`\r\n[close] Connection closed cleanly, code=${e.code} reason=${e.reason}`)
+    } else {
+        term.write(`\r\n\e[31m[close] Connection died.\e[0m`)
+    }
+}
+
+term.on('key', (key, ev) => {
+    if (key.charCodeAt(0) == 13) {
+        term.write('\n')
+        const line = currentInput.join('')
+        socket.send(line)
+        history.push(line)
+        currentInput = []
+    } else if (key.charCodeAt(0) < 32) {
+        // TODO: fancy arrow-handling & backspace for history
+        console.log(key)
+        return
+    } else {
+        term.write(key)
+        currentInput.push(key)
+    }
+})
+
+</script>
+</body>

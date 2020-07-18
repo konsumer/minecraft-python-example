@@ -1,0 +1,22 @@
+{
+  "name": "minepy-repl",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "deploy": "surge dist mcpyrepl.surge.sh",
+    "predeploy": "npm run build"
+  },
+  "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "surge": "^0.21.6"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "xterm": "^4.8.1",
+    "xterm-addon-fit": "^0.4.0"
+  }
+}

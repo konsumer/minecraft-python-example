@@ -1,0 +1,16 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+#terminal {
+    height: 100%;
+    width: 100%;
+}
